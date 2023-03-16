@@ -1,11 +1,11 @@
 # Table of contents
 
-* [WatchDog Documentation](README.md)
+* [WatchDog](README.md)
 * [Getting Started](getting-started.md)
 * [User Guides](user-guides/README.md)
-  * [Request and Response Logs](user-guides/request-and-response-logs.md)
+  * [Configurations](user-guides/configurations.md)
   * [In-Code Logs](user-guides/in-code-logs.md)
   * [Exceptions](user-guides/exceptions.md)
-  * [Viewing Logs and Exceptions](user-guides/viewing-logs-and-exceptions.md)
+  * [View Logs](user-guides/view-logs.md)
 * [Contributions](contributions.md)
 * [Release Notes](release-notes.md)

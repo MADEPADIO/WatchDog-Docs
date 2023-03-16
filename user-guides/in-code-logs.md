@@ -1,33 +1,30 @@
 ---
-description: Setup Logging to External Db, ILogger Sink Logs
+description: Setup message and events logging
 ---
 
 # In-Code Logs
 
-#### Setup Logging to External Db (MSSQL, MySQL, PostgreSQL & MongoDb) `Optional` <a href="#https-github.com-izypro-watchdog-setup-logging-to-external-db-mssql-mysql-postgresql-mongodb-optiona" id="https-github.com-izypro-watchdog-setup-logging-to-external-db-mssql-mysql-postgresql-mongodb-optiona"></a>
+### Log Messages/Events <a href="#https-github.com-izypro-watchdog-log-messagesevents" id="https-github.com-izypro-watchdog-log-messagesevents"></a>
 
-Add Database Connection String and Choose DbDriver Option
-
-```c#
-services.AddWatchDogServices(opt => 
-{
-   opt.IsAutoClear = false; 
-   opt.SetExternalDbConnString = "Server=localhost;Database=testDb;User Id=postgres;Password=root;"; 
-   opt.DbDriverOption = WatchDogSqlDriverEnum.PostgreSql; 
-});
+```
+WatchLogger.Log("...Test Log...");
+WatchLogger.LogWarning(JsonConvert.Serialize(model));
+WatchLogger.LogError(res.Content, eventId: reference);
 ```
 
-**Sink Logs from ILogger**
+<figure><img src="../.gitbook/assets/in-code.png" alt=""><figcaption></figcaption></figure>
+
+### **Sink Logs from ILogger**
 
 You can also sink logs from the .NET ILogger into WatchDog
 
-> For .NET 6 and above
+#### For .NET 5 and above
 
 ```
 builder.Logging.AddWatchDogLogger();
 ```
 
-> For .NET Core 3.1, configure logging and add `.AddWatchDogLogger()` to the `CreateHostBuilder` method of the `Program.cs` class
+#### For .NET Core 3.1
 
 ```
 Host.CreateDefaultBuilder(args)
